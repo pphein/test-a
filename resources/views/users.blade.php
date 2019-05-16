@@ -1,19 +1,4 @@
-@extends('userpost')
-
-@section('posts')
-
-<div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Your Posts</h2>
-            </div>
- </div>
-
-
-
-@foreach($posts as $post)
-
-    
-
+@foreach($users as $user)
 
 <ul>
     
@@ -26,17 +11,17 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Title:</strong>
-                {{ $post->title }}
+                {{ $user->name }}
 
                 by 
-                {{ $post->user_id }}
+                {{ $user->id }}
                 
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Body:</strong>
-                {{ $post->body }}
+                <strong>Email:</strong>
+                {{ $user->email }}
                 
                 
             </div>
@@ -47,5 +32,3 @@
 </ul>
 
 @endforeach
-
-@endsection

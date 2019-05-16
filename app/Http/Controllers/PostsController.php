@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Posts;
 use App\User;
-
-
-
-
 use Illuminate\Http\Request;
+
+
 
 class PostsController extends Controller
 {
@@ -16,10 +14,10 @@ class PostsController extends Controller
 	{
 
 		$posts = Posts::where('user_id', auth()->user()->id)->get();
-		
-		
 
-		dd('hee');
+		
+		
+		
 
 		return view('home', compact('posts'));
 	}

@@ -23,4 +23,6 @@ Route::get('/create', 'PostsController@create')->name('create');
 
 Route::post('/store', 'PostsController@store')->name('store');
 
+Route::get('/users' , 'UsersController@index')->name('users');
+
 
