@@ -11,18 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', 'PostsController@index')->name('home');
+Route::get('/' , 'PostsController@show');
 
-Route::get('/create', 'PostsController@create')->name('create');
+Route::middleware(['auth'])->group(function () {
+	Route::get('/home', 'PostsController@index')->name('home');
 
-Route::post('/store', 'PostsController@store')->name('store');
+	Route::get('/create', 'PostsController@create')->name('create');
 
-Route::get('/users' , 'UsersController@index')->name('users');
+	Route::post('/store', 'PostsController@store')->name('store');
 
-
+	Route::get('/users' , 'UsersController@index')->name('users');
+});

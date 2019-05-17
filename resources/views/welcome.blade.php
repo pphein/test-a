@@ -92,6 +92,47 @@
                 </div>
             </div>
 
+<div class="content">
+                
+                @foreach($posts as $post)
+
+    
+
+
+<ul>
+    
+    <li>
+        <div class="row">
+        
+    </div>
+   
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Title:</strong>
+                {{ $post->title }}
+
+                by 
+               {{ $post->user->name }}
+                
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Body:</strong>
+                {{ $post->body }}
+                
+                
+            </div>
+        </div>
+    </div>
+    </li>
+
+</ul>
+
+@endforeach
+            </div>
+
         </div>
     </body>
 </html>

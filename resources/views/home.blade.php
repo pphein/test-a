@@ -29,7 +29,7 @@
                 {{ $post->title }}
 
                 by 
-                {{ $post->user_id }}
+               {{ $post->user->name }}
                 
             </div>
         </div>

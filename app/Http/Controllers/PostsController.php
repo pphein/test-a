@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Posts;
 use App\User;
 use Illuminate\Http\Request;
+use Auth;
 
 
 
@@ -13,17 +14,19 @@ class PostsController extends Controller
 	public function index()
 	{
 
-		$posts = Posts::where('user_id', auth()->user()->id)->get();
+
+
+       $posts = Auth::user()->posts;
+		// $posts = Posts::where('user_id', auth()->user()->id)->get();
+
+        //return $posts = Posts::with('user')->where('user_id', auth()->user()->id)->get();
 
 		
-		
-		
-
 		return view('home', compact('posts'));
 	}
 	public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 	
     public function create()
@@ -65,6 +68,14 @@ class PostsController extends Controller
  
         // return redirect('home', compact('posts'));
  
+    }
+
+    public function show()
+    {
+
+        $posts = Posts::all();
+
+        return view('welcome' , compact('posts'));
     }
 
    
